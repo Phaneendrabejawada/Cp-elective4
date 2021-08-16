@@ -9,4 +9,9 @@
 
 def numberofpoolballs(rows):
 	# Your code goes here
-	pass
+	s = 0
+	k = 1
+	while(k <= rows):
+		s += k
+		k += 1
+	return s
