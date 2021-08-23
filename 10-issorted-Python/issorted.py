@@ -7,4 +7,6 @@
 
 def issorted(a):
 	# your code goes here
-	pass
+	if(a == sorted(a) or a == sorted(a, reverse = True)):
+		return True
+	return False
