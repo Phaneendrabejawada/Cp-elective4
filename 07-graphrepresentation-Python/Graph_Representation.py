@@ -1,19 +1,17 @@
 class Node(object):
-    def __init__(self, value):
+    def _init_(self, value):
         self.value = value
         self.edges = []
 
-'''
-This class defines an Edge
-'''
+
 class Edge(object):
-    def __init__(self, value, node_from, node_to):
+    def _init_(self, value, node_from, node_to):
         self.value = value
         self.node_from = node_from
         self.node_to = node_to
 
 class Graph(object):
-    def __init__(self, nodes=[], edges=[]):
+    def _init_(self, nodes=[], edges=[]):
         self.nodes = nodes
         self.edges = edges
 
