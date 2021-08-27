@@ -16,6 +16,18 @@ def power(a, b):
     else:
         return a * power(a, b-1)
 
+def powerSum(n, k):
+    # Your code goes here...
+    sum=0
+    for i in range(1,n+1):
+        sum+=power(i,k)
+    return sum
+# Write your own test cases here...
+assert(powerSum(2,10) == 1025)
+assert(powerSum(3,10) == 60074)
+print ("All test cases passed...")
+
+
 
 
 
