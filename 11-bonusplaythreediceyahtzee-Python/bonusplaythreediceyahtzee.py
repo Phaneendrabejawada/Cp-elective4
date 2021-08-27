@@ -39,6 +39,59 @@
 # assert(bonusPlayThreeDiceYahtzee(2333555) == (555, 35))
 
 
+def sample(n):
+  c=(len(n)-1)
+  numb=0
+  for i in n:
+    numb=numb+(i*(10**c))  # summing the number by multiplying in each iteration
+    c=c-1                  # updating the exponential value for further iteration
+  return numb
+
+def score(k):
+  empty=[]
+  b=len(str(k))
+  for i in range(b):
+    empty.append(k//10**(b-i-1))
+    k=k%10**(b-i-1)
+  
+  emp2=set(empty)
+  if(len(emp2)==len(empty)):
+    c=max(empty)
+    return c
+  elif(len(emp2)+1==len(empty)):
+    for j in empty:
+      if(empty.count(j)==2):
+        c=10+j+j
+        return c
+  else:
+    for j in empty:
+      if(empty.count(j)==3):
+        c=20+j+j+j
+        return c
+      
+      
 def bonusplaythreediceyahtzee(dice):
-	# Your code goes here
-	pass
+  dise=[]
+  d=len(str(dice))
+  for i in range(d):
+    dise.append(dice//10**(d-i-1))
+    dice=dice%10**(d-i-1)
+  dise2=[dise[-1],dise[-2],dise[-3]]
+  dise2.sort(reverse=True)
+  p=3
+  if(len(set(dise2))==1):
+    return (sample(dise2),score(sample(dise2)))
+  else:
+    dise2[1]=dise[-(p+1)]
+    p=p+1
+    dise2[2]=dise[-(p+1)]
+    p=p+1
+    dise2.sort(reverse=True)
+    if(len(set(dise2))==2):
+      dise2[0]=dise[-(p+1)]
+    else:
+      dise2[1]=dise[-(p+1)]
+      p=p+1
+      dise2[2]=dise[-(p+1)]
+    dise2.sort(reverse=True)
+    return (sample(dise2),score(sample(dise2)))
