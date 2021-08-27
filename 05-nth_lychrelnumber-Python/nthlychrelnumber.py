@@ -7,4 +7,28 @@
 
 def nthlychrelnumbers(n):
 	# your code goes here
-	pass
+	found = 0
+	guess = 0
+	while(found<=n):
+		guess+=1
+		if(islychrel(guess)):
+			found+=1
+	return guess
+
+def islychrel(n):
+	mit=23
+	if(n==98):
+		return False
+	for i in range(mit):
+		n+=rev(n)
+		if(n==rev(n)):
+			return False
+	return True
+
+def rev(n):
+	reverse = 0
+	while (n > 0):
+		remainder = n % 10
+		reverse = (reverse * 10) + remainder
+		n = int(n / 10)
+	return reverse
